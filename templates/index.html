@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gender Classifier — Predict Gender from Name</title>
+    <meta name="description" content="AI-powered gender classification. Enter any name and instantly predict whether it belongs to a Male or Female with confidence scoring." />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <!-- Animated background blobs -->
+    <div class="bg-blobs" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <!-- Hero -->
+        <header class="hero" id="hero">
+            <div class="badge">✨ AI-Powered</div>
+            <h1>Gender <span class="gradient-text">Classifier</span></h1>
+            <p class="subtitle">Enter a name and let our neural network predict the gender with confidence scoring.</p>
+        </header>
+
+        <!-- Input Card -->
+        <section class="input-card glass" id="input-card">
+            <form id="predict-form" autocomplete="off">
+                <div class="input-wrapper">
+                    <div class="input-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <input
+                        type="text"
+                        id="name-input"
+                        name="name"
+                        placeholder="Type a name…"
+                        required
+                        maxlength="60"
+                    />
+                    <button type="submit" id="predict-btn">
+                        <span class="btn-text">Predict</span>
+                        <span class="btn-loader" id="btn-loader"></span>
+                        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Result Card (hidden by default) -->
+        <section class="result-card glass hidden" id="result-card">
+            <!-- Gender Icon -->
+            <div class="gender-icon-wrapper" id="gender-icon-wrapper">
+                <!-- Male icon -->
+                <svg id="icon-male" class="gender-icon male hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="10" cy="14" r="6"/>
+                    <line x1="21" y1="3" x2="14.5" y2="9.5"/>
+                    <polyline points="21 3 21 9"/>
+                    <polyline points="21 3 15 3"/>
+                </svg>
+                <!-- Female icon -->
+                <svg id="icon-female" class="gender-icon female hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="6"/>
+                    <line x1="12" y1="14" x2="12" y2="22"/>
+                    <line x1="9" y1="18" x2="15" y2="18"/>
+                </svg>
+            </div>
+
+            <div class="result-name" id="result-name"></div>
+            <div class="result-gender" id="result-gender"></div>
+
+            <!-- Confidence -->
+            <div class="confidence-section">
+                <div class="confidence-header">
+                    <span class="confidence-label">Confidence</span>
+                    <span class="confidence-value" id="confidence-value">0%</span>
+                </div>
+                <div class="confidence-track">
+                    <div class="confidence-bar" id="confidence-bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Error -->
+        <div class="error-toast hidden" id="error-toast">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span id="error-msg">Something went wrong.</span>
+        </div>
+
+        <footer class="footer">
+            <p>Built with <span class="heart">♥</span> using TensorFlow &amp; Flask</p>
+        </footer>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
