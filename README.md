@@ -2,7 +2,7 @@
 
 An end-to-end Machine Learning web application that predicts gender (Male/Female) from Indian personal names using character-level TF-IDF feature extraction and a Keras Neural Network. 
 
-> ✨ **Powered by Google Antigravity**: The complete web frontend, glassmorphism UI design system, Flask REST API, and automated testing pipeline were pair-programmed and built using **Google Antigravity AI**.
+> ✨ **I used Google Antigravity**: The complete web frontend, glassmorphism UI design system, Flask REST API, and automated testing pipeline were pair-programmed and built using **Google Antigravity AI**.
 
 ---
 
@@ -40,25 +40,6 @@ An end-to-end Machine Learning web application that predicts gender (Male/Female
 
 ---
 
-## 📁 Project Structure
-
-```text
-Gender classification Model/
-├── gender-classification-model.ipynb  # Model training & EDA notebook
-├── gender_classification_model.h5    # Pre-trained Keras Sequential model
-├── tfidf_vectorizer.pkl              # Fitted TF-IDF char n-gram vectorizer
-├── label_encoder.pkl                 # Fitted Label Encoder (f / m)
-├── app.py                            # Flask API & static server
-├── requirements.txt                  # Python dependencies
-├── static/
-│   ├── style.css                     # Glassmorphism styling & animations
-│   └── script.js                     # Frontend API fetch & animation logic
-├── templates/
-│   └── index.html                    # Single-page web application
-└── README.md                         # Project documentation
-```
-
----
 
 ## ⚙️ Quickstart & Local Setup
 
@@ -92,8 +73,3 @@ Navigate to **[http://127.0.0.1:5000](http://127.0.0.1:5000)** in your web brows
 4. **Output**: Probability thresholded at 0.5 to produce gender output (`Male` / `Female`) alongside a confidence percentage score.
 
 ---
-
-## 📜 License & Credits
-
-- Developed as part of an Indian Names Gender Classification ML project.
-- Frontend & Flask Integration by **Antigravity AI**.

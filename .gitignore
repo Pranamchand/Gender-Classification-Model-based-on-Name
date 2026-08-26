@@ -9,6 +9,9 @@ __pycache__/
 *.pyo
 *.pyd
 
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
 # IDE & OS
 .vscode/
 .idea/
