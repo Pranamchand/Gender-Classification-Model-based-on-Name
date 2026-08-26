@@ -2,7 +2,7 @@
 
 A Machine Learning & Deep Learning application that predicts whether a given name is **Female** or **Male** using character-level **TF-IDF Vectorization** and a **TensorFlow / Keras Neural Network**. 
 
-> 🚀 **Note:** The interactive Streamlit frontend for this project was built using **[Antigravity](https://deepmind.google/)**.
+> 🚀 **Note:** I build this interactive Streamlit frontend for this project with **[Antigravity](https://deepmind.google/)**.
 
 ---
 
@@ -71,9 +71,3 @@ streamlit run app.py
 ```
 
 The web application will open automatically in your browser at `http://localhost:8501`.
-
----
-
-## 🤝 Credits & Acknowledgments
-- Frontend developed using **Antigravity**
-- Built with **Streamlit**, **TensorFlow**, and **Scikit-Learn**
