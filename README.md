@@ -1,75 +1,79 @@
-# ♀️♂️ Gender Classification Web Application
+# 👤 Gender Classification Model Based on Name
 
-An end-to-end Machine Learning web application that predicts gender (Male/Female) from Indian personal names using character-level TF-IDF feature extraction and a Keras Neural Network. 
+A Machine Learning & Deep Learning application that predicts whether a given name is **Female** or **Male** using character-level **TF-IDF Vectorization** and a **TensorFlow / Keras Neural Network**. 
 
-> ✨ **I used Google Antigravity**: The complete web frontend, glassmorphism UI design system, Flask REST API, and automated testing pipeline were pair-programmed and built using **Google Antigravity AI**.
-
----
-
-## 🌟 Highlights & Features
-
-- **High Accuracy Neural Network**: Trained on a dataset of over 100,000 names using a Deep Learning architecture (Dense + Dropout) with char-level TF-IDF vectorization ($n$-gram range 2–5).
-- **Modern Glassmorphism UI**: Built with HTML5, Vanilla CSS3, and JavaScript, featuring:
-  - Dark mode design with glowing background gradient blobs.
-  - Interactive prediction result cards with custom male/female badge indicators.
-  - Animated percentage confidence progress bar.
-- **RESTful Flask API**: A lightweight Python backend serving real-time predictions via `POST /predict`.
-- **End-to-End Pair-Programming**: Conceptualized, structured, and verified using **Antigravity AI Agent**.
+> 🚀 **Note:** The interactive Streamlit frontend for this project was built using **[Antigravity](https://deepmind.google/)**.
 
 ---
 
-## 🛠️ Technology Stack
+## 🌟 Key Features
 
-| Layer | Technology |
-| :--- | :--- |
-| **Model & Machine Learning** | Python, TensorFlow / Keras, Scikit-Learn, Pandas, NumPy |
-| **Backend API** | Flask, Flask-CORS |
-| **Frontend UI** | HTML5, Vanilla CSS3 (Glassmorphism), JavaScript (ES6+) |
-| **AI Pair Programmer** | **Google Antigravity AI** |
-
----
-
-## 🚀 Role of Google Antigravity
-
-**Google Antigravity** played a key role in bringing this Machine Learning model to life:
-
-1. **Automated Code Exploration**: Antigravity analyzed the Jupyter Notebook (`gender-classification-model.ipynb`), model artifacts (`gender_classification_model.h5`, `tfidf_vectorizer.pkl`, `label_encoder.pkl`), and dataset structure.
-2. **Frontend Architecture & Design System**: Created a responsive UI with custom CSS variables, glassmorphism effects, dynamic CSS animations, and accessibility features.
-3. **Backend Integration**: Built a Flask API (`app.py`) that loads pre-trained vectorizers and weights at startup to ensure low-latency predictions.
-4. **Autonomous Testing & Verification**: Used Antigravity's integrated headless browser subagent to execute real-time UI interaction, form input, and confidence visualization verification.
+- **⚡ Real-time Single Name Prediction**: Instant gender prediction with confidence scores (%) and probability breakdown.
+- **📋 Batch Processing**: Predict gender for multiple names simultaneously via multi-line text input or CSV file upload (`name` column).
+- **📥 Export Results**: One-click download of batch prediction results as a CSV file (`gender_classification_results.csv`).
+- **🧹 Smart Preprocessing**: Automatic text cleaning that normalizes case, removes titles, address codes (`r/o`, `c/o`, `so`, `do`), numbers, and extra spaces.
+- **📊 Interactive Analytics & Insights**: Sidebar and tabs providing insights into model architecture, n-grams, and training accuracy.
 
 ---
 
+## 🧠 Model Architecture & Machine Learning Pipeline
 
-## ⚙️ Quickstart & Local Setup
+1. **Preprocessing**: Cleans raw names by removing relationship/address keywords (`r/o`, `c/o`, `urf`, `so`, `do`, `ps`), digits, and normalizing whitespace.
+2. **Feature Extraction**: Character-level **TF-IDF Vectorizer** using `ngram_range=(2, 5)` with a maximum of `10,000` features.
+3. **Deep Learning Classifier**:
+   - **Layer 1**: Dense (64 units, ReLU activation)
+   - **Layer 2**: Dropout (0.3 rate for regularization)
+   - **Layer 3**: Dense (32 units, ReLU activation)
+   - **Output Layer**: Dense (1 unit, Sigmoid activation)
+4. **Model Performance**: Achieves **~87.5% Accuracy** on a test split of 125,000+ names.
 
-### 1. Prerequisites
-- Python 3.9+ installed on your system.
+---
 
-### 2. Install Dependencies
+## 📁 Repository Structure
+
+```text
+├── app.py                            # Streamlit Web Application (Built with Antigravity)
+├── gender_classification_model.h5    # Pre-trained Keras Model (.h5 format)
+├── gender_model.keras                # Keras Model (.keras format)
+├── tfidf_vectorizer.pkl              # Saved TF-IDF Character Vectorizer
+├── label_encoder.pkl                 # Saved Label Encoder ('f' -> 0, 'm' -> 1)
+├── Names_dataset.csv                 # Dataset containing names and gender labels
+├── gender-classification-model.ipynb # Training & Exploratory Data Analysis Notebook
+├── requirements.txt                  # Python Dependencies
+├── .gitignore                        # Git Ignore file
+└── README.md                         # Project Documentation
+```
+
+---
+
+## 🛠️ Installation & Local Setup
+
+### 1. Clone the Repository
 ```bash
+git clone https://github.com/Pranamchand/Gender-Classification-Model-based-on-Name.git
+cd Gender-Classification-Model-based-on-Name
+```
+
+### 2. Create Virtual Environment & Install Dependencies
+```bash
+python -m venv .venv
+# On Windows:
+.\.venv\Scripts\activate
+# On macOS/Linux:
+source .venv/bin/activate
+
 pip install -r requirements.txt
 ```
 
-### 3. Run the Application
+### 3. Run the Streamlit App
 ```bash
-python app.py
+streamlit run app.py
 ```
 
-### 4. Open in Browser
-Navigate to **[http://127.0.0.1:5000](http://127.0.0.1:5000)** in your web browser.
+The web application will open automatically in your browser at `http://localhost:8501`.
 
 ---
 
-## 🔬 Model Pipeline Details
-
-1. **Preprocessing**: Cleans input names by converting to lowercase and stripping extra whitespace.
-2. **Vectorization**: Uses `TfidfVectorizer` with `analyzer='char'` and `ngram_range=(2, 5)` limited to 10,000 max features.
-3. **Neural Network Architecture**:
-   - `Dense(64, activation='relu')`
-   - `Dropout(0.3)`
-   - `Dense(32, activation='relu')`
-   - `Dense(1, activation='sigmoid')`
-4. **Output**: Probability thresholded at 0.5 to produce gender output (`Male` / `Female`) alongside a confidence percentage score.
-
----
+## 🤝 Credits & Acknowledgments
+- Frontend developed using **Antigravity**
+- Built with **Streamlit**, **TensorFlow**, and **Scikit-Learn**
